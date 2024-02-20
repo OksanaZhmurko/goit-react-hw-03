@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import css from './ContactForm.module.css';
 
 export const ContactForm = ({ addContact }) => {
   const initalValue = { name: '', number: '' };
@@ -29,13 +30,13 @@ export const ContactForm = ({ addContact }) => {
       }}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form className={css.form}>
         <label htmlFor="name">Name:</label>
         <Field type="text" id="name" name="name" />
-        <ErrorMessage name="name" component="div" />
-        <label htmlFor="number">number:</label>
+        <ErrorMessage name="name" component="div" className={css['error-message']} />
+        <label htmlFor="number">Number:</label>
         <Field type="text" id="number" name="number" />
-        <ErrorMessage name="number" component="div" />
+        <ErrorMessage name="number" component="div" className={css['error-message']} />
 
         <button type="submit">Add Contact</button>
       </Form>
