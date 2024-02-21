@@ -3,6 +3,7 @@ import { ContactForm } from './components/ContactForm';
 import { ContactList } from './components/ContactList';
 import { SearchBox } from './components/SearchBox';
 
+
 function App() {
   const [contacts, setContacts] = useState([
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -14,7 +15,9 @@ function App() {
 
   useEffect(() => {
     const savedContacts = localStorage.getItem('contacts');
-    setContacts(JSON.parse(savedContacts ));
+    if (savedContacts) {
+      setContacts(JSON.parse(savedContacts));
+    }
   }, []);
 
   useEffect(() => {
