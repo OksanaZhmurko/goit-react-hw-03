@@ -33,7 +33,7 @@ function App() {
     setContacts([...contacts, newContact]);
   };
 
-  const deleteContact = id => {
+  const onDelete = id => {
     setContacts(contacts.filter(contact => contact.id !== id));
   };
 
@@ -50,7 +50,7 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox filter={filter} handleFilterContacts={handleFilterContacts} />
-      <ContactList contacts={filterContacts} deleteContact={deleteContact} />
+      <ContactList contacts={filterContacts} onDelete={onDelete} />
     </div>
   );
 }
